@@ -15,4 +15,5 @@ public class PokemonTipo
     public int TipoId { get; set; }
     [ForeignKey("TipoId")]
     public Tipo Tipo { get; set; }
+
 }

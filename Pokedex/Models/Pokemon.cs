@@ -28,11 +28,11 @@ public class Pokemon
     public string Descricao { get; set; }
 
     [Required]
-    [Column(TypeName = "decimal(5,2)")]
+    [Column(TypeName = "double(5,2)")]
     public double Altura { get; set; }
 
     [Required]
-    [Column(TypeName = "decimal(7,3)")]
+    [Column(TypeName = "double(7,3)")]
     public double Peso { get; set; }
 
     [StringLength(200)]

@@ -18,7 +18,7 @@ public class Usuario
 
     [DataType(DataType.Date)]
     public DateTime DataNascimento { get; set; }
-
+    
     [StringLength(200)]
     public string Foto { get; set; }
 }

@@ -5,16 +5,17 @@ dotnet new mvc -o Pokedex
 
 cd Pokedex
 
-dotnet watch run  => executar
+dotnet watch run
 
-Abri Nuget Gallery
+Abrir Nuget Gallery
 Ctrl + Shift + P - Pesquisar Nuget
 
-Pacotes:
 
-Microsoft.AspNetCore.Identity.EntityFrameworkCore
-Microsoft.EntityFrameworkCore
-Microsoft.EntityFrameworkCore.Design
-Microsoft.EntityFrameworkCore.Tools
-Pomelo.EntityFrameworkCore.MySql
+dotnet tool install --global dotnet-ef --version 8.0.7
+
+dotnet tool update --global dotnet-ef --version 8.0.7
+
+dotnet ef migrations add inicializando-banco
+
+dotnet ef database update
 
