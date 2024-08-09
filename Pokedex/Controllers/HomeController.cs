@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Pokedex.Data;
 using Pokedex.Models;
 using Pokedex.ViewModels;
@@ -20,9 +21,19 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         HomeVM home = new() {
-            Pokemons = _context.Pokemons.ToList(),
-            Tipos = _context.Tipos.ToList()
+            Tipos = _context.Tipos.ToList(),
+            Pokemons = _context.Pokemons
+                .Include(p => p.Tipos)
+                .ThenInclude(t => t.Tipo)
+                .Include(p => p.Regiao)
+                .Include(p => p.Genero)
+                .ToList()
         };
+        return View(home);
+    }
+
+    public IActionResult Details(int id)
+    {
         return View();
     }
 
